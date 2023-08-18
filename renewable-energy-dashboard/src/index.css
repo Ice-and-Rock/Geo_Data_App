@@ -22,6 +22,33 @@ code {
     flex-direction: column;
   }
 
+ 
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+
+.fetch-button {
+  padding: 12px 24px;
+  background: linear-gradient(to right, #87CEEB, #00BFFF);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.fetch-button:hover {
+  background: linear-gradient(to right, #11baf2, #07aaea);
+  box-shadow: 10, 10, 10, 10 black;
+}
+
+
 
 .table-container {
   width: 60%;
