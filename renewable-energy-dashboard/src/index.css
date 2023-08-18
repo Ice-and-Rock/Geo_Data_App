@@ -13,9 +13,21 @@ code {
 }
 
 
-.App {
-  text-align: center;
+  .App {
+    background: linear-gradient(to bottom, #e0e0e0, #9dd5f1); /* Adjust colors as needed */
+    /* Other styles for your app */
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+.table-container {
+  width: 60%;
+  margin: 0 auto;
   padding: 20px;
+  height: 80%;
 }
 
 table {
@@ -25,7 +37,7 @@ table {
 }
 
 th {
-  padding: 10px;
+  padding: 5px; 
   background-color: #f2f2f2;
   border: 1px solid #ccc;
 }
@@ -37,8 +49,8 @@ tr {
 }
 
 .table-cell {
-  padding: 10px;
+  padding: 5px; 
   text-align: center;
   border-right: 1px solid #ccc;
+  font-size: 12px; 
 }
-

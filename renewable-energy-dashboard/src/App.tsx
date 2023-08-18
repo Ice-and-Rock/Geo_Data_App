@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import WeatherChart from "./components/WeatherChart";
 
 interface WeatherData {
   latitude: number;
@@ -67,7 +68,13 @@ function App() {
   return (
     <div className="App">
       <h1>Geo Weather Data</h1>
-      <div>
+
+      <div className="chart-container">
+        <h1>Weather Chart</h1>
+        <WeatherChart weatherData={weatherData} />
+      </div>
+
+      <div className="table-container">
         <table>
           <thead>
             <tr>
