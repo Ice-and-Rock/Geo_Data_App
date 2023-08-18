@@ -15,7 +15,7 @@ interface WeatherData {
 
 function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
-  const [showData, setShowData] = useState(false); // State to control data display
+  const [showData, setShowData] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
