@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./App.css";
 
 interface WeatherData {
   latitude: number;
@@ -18,12 +19,13 @@ function App() {
     async function fetchData() {
       try {
         const response = await axios.get<WeatherData>(
-          'https://archive-api.open-meteo.com/v1/archive?latitude=57.199997&longitude=-6.300003&start_date=2023-08-11&end_date=2023-08-18&hourly=temperature_2m,pressure_msl&timezone=Europe%2FLondon'
+          "https://archive-api.open-meteo.com/v1/archive?latitude=57.3&longitude=-6.25&start_date=2023-08-01&end_date=2023-08-10&hourly=temperature_2m,pressure_msl&timezone=Europe%2FLondon"
         );
         const data = response.data;
         setWeatherData(data);
+        console.log("Weather data:", data);
       } catch (error) {
-        console.error('Error fetching weather data:', error);
+        console.error("Error fetching weather data:", error);
       }
     }
 
@@ -36,28 +38,56 @@ function App() {
 
   const { time, temperature_2m, pressure_msl } = weatherData.hourly;
 
+  //  4-hour intervals for dataa
+  const interval = 4;
+  const groupedData: {
+    time: string;
+    temperature_2m: number;
+    pressure_msl: number;
+  }[] = [];
+
+  for (let i = 0; i < time.length; i += interval) {
+    const slicedTime = time.slice(i, i + interval);
+    const slicedTemperature = temperature_2m.slice(i, i + interval);
+    const slicedPressure = pressure_msl.slice(i, i + interval);
+
+    const averageTemperature =
+      slicedTemperature.reduce((acc, val) => acc + val, 0) /
+      slicedTemperature.length;
+    const averagePressure =
+      slicedPressure.reduce((acc, val) => acc + val, 0) / slicedPressure.length;
+
+    groupedData.push({
+      time: slicedTime[0],
+      temperature_2m: averageTemperature,
+      pressure_msl: averagePressure,
+    });
+  }
+
   return (
     <div className="App">
-      <h1>Weather Data Display</h1>
+      <h1>Geo Weather Data</h1>
       <div>
-        <h2>Temperature Data</h2>
-        <ul>
-          {time.map((timestamp, index) => (
-            <li key={timestamp}>
-              Time: {timestamp}, Temperature: {temperature_2m[index]} °C
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2>Pressure Data</h2>
-        <ul>
-          {time.map((timestamp, index) => (
-            <li key={timestamp}>
-              Time: {timestamp}, Pressure: {pressure_msl[index]} hPa
-            </li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Avg. Temperature (°C)</th>
+              <th>Avg. Pressure (hPa)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {groupedData.map((entry, index) => (
+              <tr key={index}>
+                <td className="table-cell">{entry.time}</td>
+                <td className="table-cell">
+                  {entry.temperature_2m.toFixed(2)}
+                </td>
+                <td className="table-cell">{entry.pressure_msl.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
