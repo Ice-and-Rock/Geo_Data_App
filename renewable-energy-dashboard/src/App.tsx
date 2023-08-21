@@ -120,7 +120,7 @@ function App() {
               <table>
                 <thead>
                   <tr>
-                    <th>Time</th>
+                    <th>Time - GMT+1</th>
                     <th>Avg. Temperature (°C)</th>
                     <th>Avg. Pressure (hPa)</th>
                   </tr>
