@@ -49,6 +49,10 @@
 import React, { useEffect, useState } from "react";
 import LocationButtons from "./LocationButtons";
 
+interface WindyProps {
+  popupLat: number;
+  popupLon: number;
+}
 declare global {
   interface Window {
     windyInit: (options: any, callback: (windyAPI: any) => void) => void;
@@ -56,10 +60,7 @@ declare global {
   }
 }
 
-
-const Windy: React.FC = () => {
-  const [popupLat, setPopupLat] = useState<number>(45.9237);
-  const [popupLon, setPopupLon] = useState<number>(6.8694);
+const Windy: React.FC<WindyProps> = ({ popupLat, popupLon }) => {
 
   useEffect(() => {
     const options = {
@@ -83,14 +84,10 @@ const Windy: React.FC = () => {
     });
   }, [popupLat, popupLon]);
 
-  const handleLocationChange = (lat: number, lon: number) => {
-    setPopupLat(lat);
-    setPopupLon(lon);
-  };
+  
 
   return (
     <div className="windy-container">
-      <LocationButtons onLocationChange={handleLocationChange} />
       <div id="windy"></div>
     </div>
   );

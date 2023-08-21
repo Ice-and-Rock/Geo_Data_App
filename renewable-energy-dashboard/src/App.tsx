@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import Windy from "./components/Windy";
+import LocationButtons from "./components/LocationButtons";
 // import WeatherChart from "./components/WeatherChart";
 
 interface WeatherData {
@@ -18,6 +19,13 @@ function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [showData, setShowData] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [popupLat, setPopupLat] = useState<number>(45.9237);
+  const [popupLon, setPopupLon] = useState<number>(6.8694);
+
+  const handleLocationChange = (lat: number, lon: number) => {
+    setPopupLat(lat);
+    setPopupLon(lon);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -72,6 +80,13 @@ function App() {
     return (
       <div className="App">
       <h1>Geo Weather Data</h1>
+
+<div className="section-top">
+      <div className="location-buttons-container">
+        <LocationButtons onLocationChange={handleLocationChange}/>
+      </div>
+      </div>
+
       
   
       {!showMap && (
@@ -80,7 +95,7 @@ function App() {
       </div>
       )}
         {showMap && (
-        <Windy />
+        <Windy popupLat={popupLat} popupLon={popupLon} />
   )}
       {!showData && (
         <div className="button-container">
