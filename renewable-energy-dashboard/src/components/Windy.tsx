@@ -86,7 +86,7 @@ const Windy: React.FC<WindyProps> = ({ popupLat, popupLon, popupLocationName }) 
         .setContent([popupLocationName])
         .openOn(map);
     });
-  }, [popupLat, popupLon]);
+  }, [popupLat, popupLon, popupLocationName]);
 
   
 
