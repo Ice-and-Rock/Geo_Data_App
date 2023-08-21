@@ -82,6 +82,7 @@ function App() {
     return (
       <div className="App">
       <h1>Geo Weather Data</h1>
+      <h4>Oil rig locations</h4>
 
 <div className="section-top">
       <div className="location-buttons-container">
