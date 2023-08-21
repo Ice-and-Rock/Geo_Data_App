@@ -46,8 +46,7 @@
 
 // export default Windy;
 
-import React, { useEffect, useState } from "react";
-import LocationButtons from "./LocationButtons";
+import { useEffect } from "react";
 
 interface WindyProps {
   popupLat: number;
