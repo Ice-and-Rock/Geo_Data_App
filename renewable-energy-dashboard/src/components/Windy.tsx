@@ -51,6 +51,7 @@ import { useEffect } from "react";
 interface WindyProps {
   popupLat: number;
   popupLon: number;
+  popupLocationName: string;
 }
 declare global {
   interface Window {
@@ -59,7 +60,11 @@ declare global {
   }
 }
 
-const Windy: React.FC<WindyProps> = ({ popupLat, popupLon }) => {
+const Windy: React.FC<WindyProps> = ({ popupLat, popupLon, popupLocationName }) => {
+
+  console.log("popupLat:", popupLat)
+  console.log("popupLon:", popupLon)
+  console.log("popupLocationName:", popupLocationName)
 
   useEffect(() => {
     const options = {
@@ -78,7 +83,7 @@ const Windy: React.FC<WindyProps> = ({ popupLat, popupLon }) => {
       // eslint-disable-next-line no-undef
       window.L.popup()
         .setLatLng([popupLat, popupLon])
-        .setContent("Is this where you want to go?")
+        .setContent([popupLocationName])
         .openOn(map);
     });
   }, [popupLat, popupLon]);

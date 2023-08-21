@@ -21,10 +21,12 @@ function App() {
   const [showMap, setShowMap] = useState(false);
   const [popupLat, setPopupLat] = useState<number>(45.9237);
   const [popupLon, setPopupLon] = useState<number>(6.8694);
+  const [popupLocationName, setPopupLocationName] = useState<string>("Home: Chamonix");
 
-  const handleLocationChange = (lat: number, lon: number) => {
+  const handleLocationChange = (lat: number, lon: number, locationName: string) => {
     setPopupLat(lat);
     setPopupLon(lon);
+    setPopupLocationName(locationName)
   };
 
   useEffect(() => {
@@ -95,7 +97,7 @@ function App() {
       </div>
       )}
         {showMap && (
-        <Windy popupLat={popupLat} popupLon={popupLon} />
+        <Windy popupLat={popupLat} popupLon={popupLon} popupLocationName={popupLocationName} />
   )}
       {!showData && (
         <div className="button-container">
