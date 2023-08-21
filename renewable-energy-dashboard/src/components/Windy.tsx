@@ -72,7 +72,7 @@ const Windy: React.FC<WindyProps> = ({ popupLat, popupLon, popupLocationName }) 
       verbose: false,
       lat: popupLat,
       lon: popupLon,
-      zoom: 5,
+      zoom: 6,
     };
 
     // // Initialize Windy API

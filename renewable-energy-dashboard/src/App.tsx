@@ -33,7 +33,7 @@ function App() {
     async function fetchData() {
       try {
         const response = await axios.get<WeatherData>(
-          "https://archive-api.open-meteo.com/v1/archive?latitude=57.3&longitude=-6.25&start_date=2023-08-01&end_date=2023-08-10&hourly=temperature_2m,pressure_msl&timezone=Europe%2FLondon"
+          `https://archive-api.open-meteo.com/v1/archive?latitude=${popupLat}&longitude=${popupLon}&start_date=2023-08-01&end_date=2023-08-10&hourly=temperature_2m,pressure_msl&timezone=Europe%2FLondon`
         );
         const data = response.data;
         setWeatherData(data);
@@ -46,7 +46,7 @@ function App() {
     if (showData) {
       fetchData();
     }
-  }, [showData]);
+  }, [showData, popupLat, popupLon]);
 
 
   const { time, temperature_2m, pressure_msl } = weatherData?.hourly || {};
