@@ -38,9 +38,6 @@ function App() {
     }
   }, [showData]);
 
-  // if (!weatherData) {
-  //   return <div>Loading...</div>;
-  // }
 
   const { time, temperature_2m, pressure_msl } = weatherData?.hourly || {};
 
