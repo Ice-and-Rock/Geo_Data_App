@@ -63,7 +63,7 @@ const Windy: React.FC = () => {
 
   useEffect(() => {
     const options = {
-      key: "JyidCjUfZW9GgLRsa4exWei2tIDs9OCb",
+      key: "WTp0s6eUAz61Nq8QwUzGx4Qk3GW9ejQu",
       verbose: false,
       lat: 57.14369,
       lon: -2.09814,
