@@ -32,7 +32,7 @@ const LocationButtons: React.FC<LocationButtonsProps> = ({ onLocationChange }) =
   return (
     <div className="location-buttons">
       <button className="location-button" onClick={() => onLocationChange(34.29, -119.59, "Habitat, USA")}>Habitat, USA</button>
-      <button className="location-button" onClick={() => onLocationChange(28.03480207, -90.0228119, "A-Morpeth East")}>A-Morpeth East, India</button>
+      <button className="location-button" onClick={() => onLocationChange(15.358356, 81.588471, "A-Morpeth East")}>A-Morpeth East, India</button>
       <button className="location-button" onClick={() => onLocationChange(58.058692, 1.081275, "Alba northern")}>Alba northern, UK</button>
     </div>
   );
