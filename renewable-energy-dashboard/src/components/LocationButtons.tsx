@@ -7,13 +7,13 @@ interface LocationButtonsProps {
 const LocationButtons: React.FC<LocationButtonsProps> = ({ onLocationChange }) => {
   return (
     <div>
-      <button onClick={() => onLocationChange(57.14369, -2.09814)}>
+      <button className="location-button" onClick={() => onLocationChange(57.14369, -2.09814)}>
         Oil Rig 1
       </button>
-      <button onClick={() => onLocationChange(56.048, -1.132)}>
+      <button className="location-button" onClick={() => onLocationChange(56.048, -1.132)}>
         Oil Rig 2
       </button>
-      <button onClick={() => onLocationChange(57.919, -1.803)}>
+      <button className="location-button" onClick={() => onLocationChange(57.919, -1.803)}>
         Oil Rig 3
       </button>
     </div>
