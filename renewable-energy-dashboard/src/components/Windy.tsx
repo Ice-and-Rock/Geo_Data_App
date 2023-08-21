@@ -70,8 +70,8 @@ const Windy: React.FC<WindyProps> = ({ popupLat, popupLon, popupLocationName }) 
     const options = {
       key: "WTp0s6eUAz61Nq8QwUzGx4Qk3GW9ejQu",
       verbose: false,
-      lat: 45.9237,
-      lon: 6.8694,
+      lat: popupLat,
+      lon: popupLon,
       zoom: 5,
     };
 
