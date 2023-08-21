@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const apiKey = 'WTp0s6eUAz61Nq8QwUzGx4Qk3GW9ejQu';
+// const apiKey = 'WTp0s6eUAz61Nq8QwUzGx4Qk3GW9ejQu';
 
 const Windy = () => {
     useEffect(() => {
@@ -37,7 +37,7 @@ windyInit(options, windyAPI => {
     return (
     <div className="windy-container">
 
-    <div id="windy"></div>;
+    <div id="windy"></div>
 
     </div>
     )
