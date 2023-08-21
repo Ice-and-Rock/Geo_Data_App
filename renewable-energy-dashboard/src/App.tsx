@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import Windy from "./components/Windy";
 // import WeatherChart from "./components/WeatherChart";
 
 interface WeatherData {
@@ -16,6 +17,7 @@ interface WeatherData {
 function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [showData, setShowData] = useState(false);
+  const [showMap, setShowMap] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -62,24 +64,33 @@ function App() {
       const averagePressure =
         slicedPressure.reduce((acc, val) => acc + val, 0) / slicedPressure.length;
   
-      groupedData.push({
-        time: slicedTime[0],
-        temperature_2m: averageTemperature,
-        pressure_msl: averagePressure,
-      });
+        groupedData.push({
+          time: slicedTime[0],
+          temperature_2m: averageTemperature,
+          pressure_msl: averagePressure,
+        });
+      }
     }
-  }
-
-  return (
-    <div className="App">
+    
+    return (
+      <div className="App">
       <h1>Geo Weather Data</h1>
       
   
+      {!showMap && (
+        <div className="button-container">
+        <button className="fetch-button" onClick={() => setShowMap(true)}>Fetch Weather Map</button>
+      </div>
+      )}
+        {showMap && (
+        <Windy />
+  )}
       {!showData && (
         <div className="button-container">
         <button className="fetch-button" onClick={() => setShowData(true)}>Fetch Data</button>
       </div>
       )}
+
 
       {showData && (
         <div>
