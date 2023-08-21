@@ -93,7 +93,7 @@ function App() {
   
       {!showMap && (
         <div className="button-container">
-        <button className="fetch-button" onClick={() => setShowMap(true)}>Fetch Weather Map</button>
+        <button className="fetch-button" onClick={() => setShowMap(true)}>Display Weather Map</button>
       </div>
       )}
         {showMap && (
@@ -101,7 +101,7 @@ function App() {
   )}
       {!showData && (
         <div className="button-container">
-        <button className="fetch-button" onClick={() => setShowData(true)}>Fetch Data</button>
+        <button className="fetch-button" onClick={() => setShowData(true)}>Show Data Table</button>
       </div>
       )}
 
