@@ -1,67 +1,110 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+.App {
+  background: linear-gradient(
+    to bottom,
+    #e0e0e0,
+    #9dd5f1
+  ); /* Adjust colors as needed */
+  /* Other styles for your app */
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
-  .App {
-    background: linear-gradient(to bottom, #e0e0e0, #9dd5f1); /* Adjust colors as needed */
-    /* Other styles for your app */
-    min-height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .windy-container {
+.windy-container {
   height: 400px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-   
-  }
-  #windy {
-    height: 100%;
-    width: 50%;
-  }
+}
+#windy {
+  height: 100%;
+  width: 50%;
+}
+.section-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 0;
+  border-radius: 20px;
+  color: #444343;
+  background: linear-gradient(to right, #a1e4ff, #20baed);
+  width: 60%;
+}
+.title-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  color: #444343;
+  
+}
+
 .section-top {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 20vh;
   width: 100%;
   margin: 0 auto;
+}
+.top-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 0;
+  border-radius: 20px;
+  color: #444343;
+  background: linear-gradient(to right, #bae2f3, #86d7f2);
+  width: 90%;
 }
 .location-buttons-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
-width:80%
-
+  width: 80%;
 }
 .button-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+
   height: 40vh;
 }
 
-
 .fetch-button {
   padding: 12px 24px;
-  background: linear-gradient(to right, #87CEEB, #00BFFF);
+  background: linear-gradient(to right, #87ceeb, #00bfff);
   border: none;
   color: white;
   font-size: 16px;
@@ -78,7 +121,7 @@ width:80%
 .location-button {
   padding: 12px 24px;
   margin: 1vh;
-  background: linear-gradient(to right, #87CEEB, #00BFFF);
+  background: linear-gradient(to right, #87ceeb, #00bfff);
   border: none;
   color: white;
   font-size: 16px;
@@ -92,8 +135,6 @@ width:80%
   background: linear-gradient(to right, #11baf2, #07aaea);
   box-shadow: 10, 10, 10, 10 black;
 }
-
-
 
 .table-container {
   width: 60%;
@@ -109,7 +150,7 @@ table {
 }
 
 th {
-  padding: 5px; 
+  padding: 5px;
   background-color: #f2f2f2;
   border: 1px solid #ccc;
 }
@@ -121,8 +162,8 @@ tr {
 }
 
 .table-cell {
-  padding: 5px; 
+  padding: 5px;
   text-align: center;
   border-right: 1px solid #ccc;
-  font-size: 12px; 
+  font-size: 12px;
 }
