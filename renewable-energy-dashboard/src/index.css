@@ -97,7 +97,7 @@ code {
 .button-container {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 
   height: 40vh;
 }
