@@ -1,3 +1,3 @@
 # Geo_Data_App
 
-Initial test.
+Project created to establish oil platform weather forecasts for flight patterns. 
