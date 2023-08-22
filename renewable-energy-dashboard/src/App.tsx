@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import Windy from "./components/Windy";
+import LocationButtons from "./components/LocationButtons";
 // import WeatherChart from "./components/WeatherChart";
 
 interface WeatherData {
@@ -18,12 +19,21 @@ function App() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [showData, setShowData] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [popupLat, setPopupLat] = useState<number>(45.9237);
+  const [popupLon, setPopupLon] = useState<number>(6.8694);
+  const [popupLocationName, setPopupLocationName] = useState<string>("Home: Chamonix");
+
+  const handleLocationChange = (lat: number, lon: number, locationName: string) => {
+    setPopupLat(lat);
+    setPopupLon(lon);
+    setPopupLocationName(locationName)
+  };
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get<WeatherData>(
-          "https://archive-api.open-meteo.com/v1/archive?latitude=57.3&longitude=-6.25&start_date=2023-08-01&end_date=2023-08-10&hourly=temperature_2m,pressure_msl&timezone=Europe%2FLondon"
+          `https://archive-api.open-meteo.com/v1/archive?latitude=${popupLat}&longitude=${popupLon}&start_date=2023-08-01&end_date=2023-08-10&hourly=temperature_2m,pressure_msl&timezone=Europe%2FLondon`
         );
         const data = response.data;
         setWeatherData(data);
@@ -36,11 +46,8 @@ function App() {
     if (showData) {
       fetchData();
     }
-  }, [showData]);
+  }, [showData, popupLat, popupLon]);
 
-  // if (!weatherData) {
-  //   return <div>Loading...</div>;
-  // }
 
   const { time, temperature_2m, pressure_msl } = weatherData?.hourly || {};
 
@@ -75,19 +82,27 @@ function App() {
     return (
       <div className="App">
       <h1>Geo Weather Data</h1>
+      <h4>Oil rig locations</h4>
+
+<div className="section-top">
+      <div className="location-buttons-container">
+        <LocationButtons onLocationChange={handleLocationChange}/>
+      </div>
+      </div>
+
       
   
       {!showMap && (
         <div className="button-container">
-        <button className="fetch-button" onClick={() => setShowMap(true)}>Fetch Weather Map</button>
+        <button className="fetch-button" onClick={() => setShowMap(true)}>Display Weather Map</button>
       </div>
       )}
         {showMap && (
-        <Windy />
+        <Windy popupLat={popupLat} popupLon={popupLon} popupLocationName={popupLocationName} />
   )}
       {!showData && (
         <div className="button-container">
-        <button className="fetch-button" onClick={() => setShowData(true)}>Fetch Data</button>
+        <button className="fetch-button" onClick={() => setShowData(true)}>Show Data Table</button>
       </div>
       )}
 
@@ -106,7 +121,7 @@ function App() {
               <table>
                 <thead>
                   <tr>
-                    <th>Time</th>
+                    <th>Time - GMT+1</th>
                     <th>Avg. Temperature (°C)</th>
                     <th>Avg. Pressure (hPa)</th>
                   </tr>
