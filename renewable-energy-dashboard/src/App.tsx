@@ -104,7 +104,7 @@ function App() {
       <div className="section-top">
         <div className="top-container">
           <h5>
-            Click on the Oil rig names below to display current weather data.{" "}
+            Click on the 'Display' buttons first, to fetch the data, then click on the Oil rig names below to display current weather data.{" "}
           </h5>
           <div className="location-buttons-container">
             <LocationButtons onLocationChange={handleLocationChange} />
@@ -129,7 +129,7 @@ function App() {
       {!showData && (
         <div className="button-container">
           <button className="fetch-button" onClick={() => setShowData(true)}>
-            Show Data Table
+            Display Data Table
           </button>
         </div>
       )}
