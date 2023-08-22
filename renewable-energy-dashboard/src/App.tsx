@@ -88,14 +88,14 @@ function App() {
     <div className="App">
       <div className="section-title">
         <div className="title-container">
-          <h1>Geo Weather Data</h1>
+          <h1>Offshore Flight Planner</h1>
           <h5>Supplied by Open-Meteo API. </h5>
         </div>
 
         <div className="title-description">
           <h4>
             This app was created to offer three day weather forecasting for
-            various oil platform around the globe.{" "}
+            various oil platform around the globe.
           </h4>
           
         </div>
