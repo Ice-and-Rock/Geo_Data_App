@@ -95,7 +95,7 @@ function App() {
         <div className="title-description">
           <h4>
             This app was created to offer three day weather forecasting for
-            various oil platform around the globe.{" "}
+            various oil platform around the globe.
           </h4>
           
         </div>
@@ -104,7 +104,7 @@ function App() {
       <div className="section-top">
         <div className="top-container">
           <h5>
-            Click on the Oil rig names below to display current weather data.{" "}
+            Click on the Oil rig names below to display current weather data.
           </h5>
           <div className="location-buttons-container">
             <LocationButtons onLocationChange={handleLocationChange} />
