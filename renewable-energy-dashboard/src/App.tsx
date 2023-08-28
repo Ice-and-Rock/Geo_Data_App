@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./App.css";
 import Windy from "./components/Windy";
 import LocationButtons from "./components/LocationButtons";
 // import WeatherChart from "./components/WeatherChart";

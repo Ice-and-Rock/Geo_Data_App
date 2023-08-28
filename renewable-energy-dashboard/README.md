@@ -10,4 +10,4 @@
     - create averages in seperate functions
     - Let the user know the days it was least windy from both locations
 - Run a backend server to compile user data
-- create CRUD server to log details of API data
+- create CRUD server to log details of API data 
